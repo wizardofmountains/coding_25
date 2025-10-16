@@ -51,3 +51,8 @@ next-env.d.ts
 INSTRUCTOR_GUIDE.md
 TEAMS_MESSAGE_TEMPLATE.md
 TEAMS_QUICK_START.md
+
+# Internal review files (contain sensitive information in history)
+GITIGNORE_REVIEW.md
+SECURITY_AUDIT.md
+CODE_REVIEW.md
