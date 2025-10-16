@@ -35,13 +35,38 @@ This application showcases:
 
 ## Getting Started
 
-### Prerequisites
+### 🚀 Quick Setup (Recommended)
 
-1. Node.js 18 or higher installed
-2. npm or yarn package manager
-3. OpenAI API key (get one at https://platform.openai.com/api-keys)
+After cloning the repository, run the automated setup script:
 
-### Installation
+```bash
+cd 00-wow-ai-creative-studio
+./setup.sh
+```
+
+The script will:
+- ✅ Check Node.js version
+- ✅ Install dependencies
+- ✅ Guide you through API key setup
+- ✅ Verify everything is ready
+
+Then start the development server:
+```bash
+./start.sh
+```
+
+When done, stop the server:
+```bash
+./stop.sh
+```
+
+**📚 For detailed instructions and API key options, see [SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md)**
+
+---
+
+### 🛠️ Manual Setup (Alternative)
+
+If you prefer manual setup:
 
 1. **Navigate to this directory:**
    ```bash
@@ -64,6 +89,8 @@ This application showcases:
    ```env
    OPENAI_API_KEY=sk-your-actual-api-key-here
    ```
+
+   **🔑 Need an API key?** See [SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md) for options
 
 4. **Run the development server:**
    ```bash
