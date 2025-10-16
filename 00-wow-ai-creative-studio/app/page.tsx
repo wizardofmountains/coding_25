@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ImageGenerator from "./components/ImageGenerator";
 import ImageGallery from "./components/ImageGallery";
 
@@ -34,6 +35,76 @@ export default function Home() {
         className="container mx-auto px-4 py-8"
       >
         <div className="text-center">
+          {/* NDU Logo with Advanced Animations */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              rotateY: 0,
+            }}
+            transition={{
+              duration: 1.2,
+              type: "spring",
+              stiffness: 200,
+              damping: 20
+            }}
+            whileHover={{
+              scale: 1.1,
+              rotateY: 360,
+              rotateZ: [0, -5, 5, -5, 0],
+              transition: {
+                rotateY: { duration: 0.8 },
+                rotateZ: {
+                  duration: 0.5,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="flex justify-center mb-8 cursor-pointer"
+            style={{ perspective: 1000 }}
+          >
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-2xl"
+              animate={{
+                boxShadow: [
+                  "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                  "0 25px 50px -12px rgba(139, 92, 246, 0.5)",
+                  "0 25px 50px -12px rgba(236, 72, 153, 0.5)",
+                  "0 25px 50px -12px rgba(59, 130, 246, 0.5)",
+                  "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                ]
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <motion.div
+                className="relative w-32 h-32 md:w-40 md:h-40"
+                animate={{
+                  rotate: [0, 0, 0, 0, 0],
+                }}
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 0.8 }
+                }}
+              >
+                <Image
+                  src="/ndu-logo.png"
+                  alt="New Design University Logo"
+                  fill
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
           <motion.h1
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
@@ -49,6 +120,14 @@ export default function Home() {
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
             Transform your imagination into stunning visuals with the power of AI
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-sm text-gray-400 mt-2"
+          >
+            A project for Coding 25
           </motion.p>
         </div>
       </motion.header>
