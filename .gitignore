@@ -51,6 +51,7 @@ next-env.d.ts
 INSTRUCTOR_GUIDE.md
 TEAMS_MESSAGE_TEMPLATE.md
 TEAMS_QUICK_START.md
+TESTING_STUDENT_EXPERIENCE.md
 
 # Internal review files (contain sensitive information in history)
 GITIGNORE_REVIEW.md
