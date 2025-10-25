@@ -2,9 +2,11 @@ import { WeatherData } from '../types';
 
 interface WeatherCardProps {
   weather: WeatherData;
+  isFavorite: boolean;
+  onToggleFavorite?: () => void;
 }
 
-const WeatherCard = ({ weather }: WeatherCardProps) => {
+const WeatherCard = ({ weather, isFavorite, onToggleFavorite }: WeatherCardProps) => {
   const temperature = Math.round(weather.main.temp);
   const feelsLike = Math.round(weather.main.feels_like);
   const weatherMain = weather.weather[0].main;
@@ -15,10 +17,34 @@ const WeatherCard = ({ weather }: WeatherCardProps) => {
 
   return (
     <div className="weather-card">
-      {/* City Name & Country */}
+      {/* City Name & Country with Favorite Button */}
       <div className="weather-card-header">
-        <h2 className="city-name">{weather.name}</h2>
-        <span className="country-code">{weather.sys.country}</span>
+        <div className="city-info">
+          <h2 className="city-name">{weather.name}</h2>
+          <span className="country-code">{weather.sys.country}</span>
+        </div>
+        {onToggleFavorite && (
+          <button 
+            className={`favorite-toggle-button ${isFavorite ? 'is-favorite' : ''}`}
+            onClick={onToggleFavorite}
+            aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          >
+            <svg
+              className="favorite-icon"
+              fill={isFavorite ? 'currentColor' : 'none'}
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Main Temperature Display */}

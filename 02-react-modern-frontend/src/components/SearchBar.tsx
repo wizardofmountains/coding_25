@@ -19,13 +19,6 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     }
   };
 
-  const handleClick = () => {
-    if (cityInput.trim()) {
-      onSearch(cityInput.trim());
-      setCityInput(''); // Clear input after search
-    }
-  };
-
   return (
     <div className="search-section">
       <form className="search-bar" onSubmit={handleSubmit}>
@@ -40,7 +33,6 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         <button 
           type="submit" 
           className="search-button"
-          onClick={handleClick}
         >
           <svg
             className="search-icon"
