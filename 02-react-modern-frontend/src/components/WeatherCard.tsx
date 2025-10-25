@@ -1,3 +1,4 @@
+import { Heart, Thermometer, Droplets, Wind } from 'lucide-react';
 import { WeatherData } from '../types';
 
 interface WeatherCardProps {
@@ -29,20 +30,12 @@ const WeatherCard = ({ weather, isFavorite, onToggleFavorite }: WeatherCardProps
             onClick={onToggleFavorite}
             aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
           >
-            <svg
+            <Heart 
               className="favorite-icon"
+              size={24}
+              strokeWidth={2}
               fill={isFavorite ? 'currentColor' : 'none'}
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
+            />
           </button>
         )}
       </div>
@@ -69,20 +62,7 @@ const WeatherCard = ({ weather, isFavorite, onToggleFavorite }: WeatherCardProps
       {/* Weather Details Grid */}
       <div className="weather-details">
         <div className="weather-detail-item">
-          <svg
-            className="detail-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-            />
-          </svg>
+          <Thermometer className="detail-icon" size={24} strokeWidth={2} />
           <div className="detail-content">
             <span className="detail-label">Feels Like</span>
             <span className="detail-value">{feelsLike}°C</span>
@@ -90,20 +70,7 @@ const WeatherCard = ({ weather, isFavorite, onToggleFavorite }: WeatherCardProps
         </div>
 
         <div className="weather-detail-item">
-          <svg
-            className="detail-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
+          <Droplets className="detail-icon" size={24} strokeWidth={2} />
           <div className="detail-content">
             <span className="detail-label">Humidity</span>
             <span className="detail-value">{humidity}%</span>
@@ -111,20 +78,7 @@ const WeatherCard = ({ weather, isFavorite, onToggleFavorite }: WeatherCardProps
         </div>
 
         <div className="weather-detail-item">
-          <svg
-            className="detail-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
+          <Wind className="detail-icon" size={24} strokeWidth={2} />
           <div className="detail-content">
             <span className="detail-label">Wind Speed</span>
             <span className="detail-value">{windSpeed} km/h</span>
