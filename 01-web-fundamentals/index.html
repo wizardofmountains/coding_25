@@ -7,7 +7,47 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Your HTML content will go here -->
+    <header class="app-header">
+        <div class="container">
+            <h1 class="app-title">My Task Manager</h1>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="task-form-section container">
+            <form id="task-form" class="task-form" novalidate>
+                <div class="form-field">
+                    <label for="task-title">Task Title</label>
+                    <input type="text" id="task-title" name="title" placeholder="e.g., Buy groceries" required>
+                </div>
+                <div class="form-field">
+                    <label for="task-details">Details</label>
+                    <textarea id="task-details" name="details" rows="4" placeholder="Optional details..."></textarea>
+                </div>
+                <button type="submit" id="add-task-btn" class="btn btn-primary">Add Task</button>
+            </form>
+        </section>
+
+        <section class="task-controls-section container">
+            <div class="filters" role="group" aria-label="Filter tasks">
+                <button type="button" id="filter-all" class="btn filter-btn is-active" data-filter="all">All</button>
+                <button type="button" id="filter-active" class="btn filter-btn" data-filter="active">Active</button>
+                <button type="button" id="filter-completed" class="btn filter-btn" data-filter="completed">Completed</button>
+            </div>
+        </section>
+
+        <section class="task-list-section container">
+            <ul id="task-list" class="task-list" aria-live="polite" aria-label="Task list">
+                <!-- Tasks will render here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; 2025 Andi</p>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
