@@ -3,14 +3,16 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import FavoriteCities from './components/FavoriteCities';
 import WeatherDisplay from './components/WeatherDisplay';
-import { FavoriteCity } from './types';
+import { FavoriteCity, WeatherData } from './types';
 
 const App = () => {
   const [favorites] = useState<FavoriteCity[]>([]);
+  const [weather, setWeather] = useState<WeatherData | null>(null);
 
   const handleSearch = (city: string) => {
     console.log('Searching for:', city);
     // TODO: Fetch weather data for the city
+    setWeather(null); // Clear current weather while searching
   };
 
   const handleSelectFavorite = (cityName: string) => {
@@ -30,7 +32,7 @@ const App = () => {
 
         <main className="main-content">
           <SearchBar onSearch={handleSearch} />
-          <WeatherDisplay />
+          <WeatherDisplay weather={weather} />
         </main>
       </div>
     </div>
